@@ -1,10 +1,10 @@
 import type { Metadata } from "next"
-import { Manrope } from "next/font/google"
+import { Arimo } from "next/font/google"
 import "./globals.css"
 import BottomNav from "@/components/BottomNav"
 import { ToastProvider } from "@/components/Toast"
 
-const manrope = Manrope({
+const arimo = Arimo({
   subsets: ["latin"],
   variable: "--font-app",
   display: "swap",
@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={manrope.variable}>
+    <html lang="en" className={arimo.variable}>
       <body suppressHydrationWarning style={styles.body}>
         <ToastProvider>
           <div style={styles.backgroundGlowOne} />
