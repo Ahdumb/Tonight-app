@@ -254,7 +254,7 @@ export default function EditEventPage() {
 
           <section style={styles.gateCard}>
             <div style={styles.sectionPill}>Access denied</div>
-            <h1 style={styles.title}>You can't edit this event</h1>
+            <h1 style={styles.title}>You can&apos;t edit this event</h1>
             <p style={styles.subtitle}>
               Only the organization that posted this event can edit it.
             </p>
@@ -410,7 +410,7 @@ const styles: Record<string, React.CSSProperties> = {
     minHeight: "100vh",
     color: "white",
     padding: "32px 18px 120px",
-    fontFamily: "Arial, sans-serif",
+    fontFamily: "inherit",
     overflowX: "hidden",
     position: "relative",
     background: "transparent",

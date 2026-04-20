@@ -450,7 +450,7 @@ const styles: Record<string, React.CSSProperties> = {
     minHeight: "100vh",
     color: "white",
     padding: "32px 18px 120px",
-    fontFamily: "Arial, sans-serif",
+    fontFamily: "inherit",
     background: "transparent",
   },
   container: {

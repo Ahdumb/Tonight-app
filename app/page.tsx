@@ -586,7 +586,7 @@ const styles: Record<string, React.CSSProperties> = {
     minHeight: "100vh",
     color: "white",
     padding: "32px 18px 120px",
-    fontFamily: "Arial, sans-serif",
+    fontFamily: "inherit",
     overflowX: "hidden",
     position: "relative",
     background: "transparent",

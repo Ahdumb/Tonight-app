@@ -1,7 +1,14 @@
 import type { Metadata } from "next"
+import { Manrope } from "next/font/google"
 import "./globals.css"
 import BottomNav from "@/components/BottomNav"
 import { ToastProvider } from "@/components/Toast"
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-app",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: "TONIGHT.",
@@ -14,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={manrope.variable}>
       <body suppressHydrationWarning style={styles.body}>
         <ToastProvider>
           <div style={styles.backgroundGlowOne} />
