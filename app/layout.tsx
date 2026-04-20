@@ -1,12 +1,13 @@
 import type { Metadata } from "next"
-import { Arimo } from "next/font/google"
+import { Archivo } from "next/font/google"
 import "./globals.css"
 import BottomNav from "@/components/BottomNav"
 import { ToastProvider } from "@/components/Toast"
 
-const arimo = Arimo({
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-ios-match",
+  variable: "--font-app",
+  weight: ["400", "500", "700", "800"],
   display: "swap",
 })
 
@@ -29,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={arimo.variable}>
+    <html lang="en" className={archivo.variable}>
       <body suppressHydrationWarning style={styles.body}>
         <ToastProvider>
           <div style={styles.backgroundGlowOne} />
