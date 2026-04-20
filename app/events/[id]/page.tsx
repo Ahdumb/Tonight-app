@@ -539,9 +539,17 @@ export default function EventPage() {
   return (
     <main style={styles.page}>
       <div style={styles.container}>
-        <Link href="/" style={styles.backLink}>
+        <div style={styles.headerRow}>
+          <Link href="/" style={styles.backLink}>
           ← Back
-        </Link>
+          </Link>
+
+          {!isOwner && (
+            <button onClick={handleReportEvent} style={styles.headerReportButton}>
+              Report
+            </button>
+          )}
+        </div>
 
         <section style={styles.heroCard}>
           {images[0] && (
@@ -675,7 +683,6 @@ export default function EventPage() {
 
               <button onClick={handleShare} style={styles.actionButton}>
                 <span style={styles.actionIcon}>↗</span>
-                <span>Share</span>
               </button>
 
               <button
@@ -685,13 +692,6 @@ export default function EventPage() {
                 <span style={styles.actionIcon}>💬</span>
                 <span>{comments.length}</span>
               </button>
-
-              {!isOwner && (
-                <button onClick={handleReportEvent} style={styles.actionButton}>
-                  <span style={styles.actionIcon}>!</span>
-                  <span>Report</span>
-                </button>
-              )}
 
               {isOwner && (
                 <>
@@ -1015,6 +1015,13 @@ const styles: Record<string, React.CSSProperties> = {
     gap: 18,
     flexWrap: "wrap",
   },
+  headerRow: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    gap: 12,
+    marginBottom: 18,
+  },
   topActions: {
     display: "flex",
     gap: 12,
@@ -1087,11 +1094,21 @@ const styles: Record<string, React.CSSProperties> = {
     paddingRight: 4,
   },
   backLink: {
-    color: "rgba(255,255,255,0.62)",
+    color: "rgba(255,255,255,0.7)",
     textDecoration: "none",
     display: "inline-block",
-    marginBottom: 18,
     fontSize: 15,
+    fontWeight: 700,
+  },
+  headerReportButton: {
+    padding: "10px 16px",
+    borderRadius: 999,
+    border: "1.5px solid rgba(255,255,255,0.22)",
+    background: "rgba(255,255,255,0.05)",
+    color: "white",
+    fontWeight: 700,
+    fontSize: 14,
+    cursor: "pointer",
   },
   loadingText: {
     color: "rgba(255,255,255,0.5)",
@@ -1197,26 +1214,29 @@ const styles: Record<string, React.CSSProperties> = {
     marginBottom: 20,
   },
   actionButton: {
-    padding: "14px 18px",
+    minWidth: 56,
+    padding: "13px 17px",
     borderRadius: 999,
-    border: "1px solid rgba(255,255,255,0.10)",
-    background: "rgba(255,255,255,0.04)",
+    border: "1.5px solid rgba(255,255,255,0.22)",
+    background: "rgba(255,255,255,0.05)",
     color: "white",
     fontWeight: 700,
     fontSize: 15,
     cursor: "pointer",
     display: "flex",
     alignItems: "center",
+    justifyContent: "center",
     gap: 8,
+    boxShadow: "0 0 0 1px rgba(255,255,255,0.03) inset",
   },
   actionIcon: {
-    fontSize: 16,
+    fontSize: 17,
     lineHeight: 1,
   },
   actionButtonActive: {
-    background: "rgba(92,120,255,0.18)",
-    border: "1px solid rgba(92,120,255,0.35)",
-    color: "#dbe4ff",
+    background: "rgba(255,255,255,0.08)",
+    border: "1.5px solid rgba(255,255,255,0.32)",
+    color: "white",
   },
   actionButtonDanger: {
     background: "rgba(255, 70, 110, 0.12)",
