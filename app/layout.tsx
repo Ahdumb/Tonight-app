@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Arimo } from "next/font/google"
 import "./globals.css"
 import BottomNav from "@/components/BottomNav"
+import PlatformClassName from "@/components/PlatformClassName"
 import { ToastProvider } from "@/components/Toast"
 
 const arimo = Arimo({
@@ -32,6 +33,7 @@ export default function RootLayout({
     <html lang="en" className={arimo.variable}>
       <body suppressHydrationWarning style={styles.body}>
         <ToastProvider>
+          <PlatformClassName />
           <div style={styles.backgroundGlowOne} />
           <div style={styles.backgroundGlowTwo} />
           <div style={styles.backgroundGlowThree} />
