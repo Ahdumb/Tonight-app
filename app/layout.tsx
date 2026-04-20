@@ -1,11 +1,26 @@
 import type { Metadata } from "next"
+import { Arimo } from "next/font/google"
 import "./globals.css"
 import BottomNav from "@/components/BottomNav"
 import { ToastProvider } from "@/components/Toast"
 
+const arimo = Arimo({
+  subsets: ["latin"],
+  variable: "--font-ios-match",
+  display: "swap",
+})
+
 export const metadata: Metadata = {
   title: "TONIGHT.",
-  description: "Find what’s happening after dark.",
+  description: "Find what's happening after dark.",
+  icons: {
+    icon: [
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/favicon.ico"],
+  },
 }
 
 export default function RootLayout({
@@ -14,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={arimo.variable}>
       <body suppressHydrationWarning style={styles.body}>
         <ToastProvider>
           <div style={styles.backgroundGlowOne} />
