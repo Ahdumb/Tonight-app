@@ -1,14 +1,7 @@
 import type { Metadata } from "next"
-import { Arimo } from "next/font/google"
 import "./globals.css"
 import BottomNav from "@/components/BottomNav"
 import { ToastProvider } from "@/components/Toast"
-
-const arimo = Arimo({
-  subsets: ["latin"],
-  variable: "--font-app",
-  display: "swap",
-})
 
 export const metadata: Metadata = {
   title: "TONIGHT.",
@@ -21,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={arimo.variable}>
+    <html lang="en">
       <body suppressHydrationWarning style={styles.body}>
         <ToastProvider>
           <div style={styles.backgroundGlowOne} />
