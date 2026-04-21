@@ -319,9 +319,17 @@ export default function OrgPage() {
   return (
     <main style={styles.page}>
       <div style={styles.container}>
-        <Link href="/" style={styles.backLink}>
+        <div style={styles.headerRow}>
+          <Link href="/" style={styles.backLink}>
           ← Back
-        </Link>
+          </Link>
+
+          {!isOwnProfile && (
+            <button onClick={handleReportProfile} style={styles.headerReportButton}>
+              Report
+            </button>
+          )}
+        </div>
 
         <section style={styles.heroCard}>
           <div style={styles.heroBannerSection}>
@@ -378,7 +386,7 @@ export default function OrgPage() {
               {profile.bio && <p style={styles.bio}>{profile.bio}</p>}
 
               {!isOwnProfile && (
-                <div style={{ marginTop: "16px" }}>
+                <div style={styles.followActionRow}>
                   <button
                     onClick={handleFollowToggle}
                     style={{
@@ -387,9 +395,6 @@ export default function OrgPage() {
                     }}
                   >
                     {isFollowing ? "Following" : "Follow"}
-                  </button>
-                  <button onClick={handleReportProfile} style={styles.reportButton}>
-                    Report Profile
                   </button>
                 </div>
               )}
@@ -519,12 +524,29 @@ const styles: Record<string, React.CSSProperties> = {
     maxWidth: 980,
     margin: "0 auto",
   },
+  headerRow: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 12,
+    marginBottom: 18,
+  },
   backLink: {
-    color: "rgba(255,255,255,0.62)",
+    color: "rgba(255,255,255,0.7)",
     textDecoration: "none",
     display: "inline-block",
-    marginBottom: 18,
     fontSize: 15,
+    fontWeight: 700,
+  },
+  headerReportButton: {
+    padding: "10px 16px",
+    borderRadius: 999,
+    border: "1.5px solid rgba(255,255,255,0.22)",
+    background: "rgba(255,255,255,0.05)",
+    color: "white",
+    fontWeight: 700,
+    fontSize: 14,
+    cursor: "pointer",
   },
   helperText: {
     color: "rgba(255,255,255,0.62)",
@@ -671,31 +693,27 @@ const styles: Record<string, React.CSSProperties> = {
     lineHeight: 1.6,
     fontSize: 15,
   },
+  followActionRow: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: 20,
+  },
   followButton: {
-    padding: "14px 20px",
+    minWidth: 180,
+    padding: "17px 34px",
     borderRadius: 999,
     border: "1px solid rgba(255,255,255,0.18)",
     background: "rgba(255,255,255,0.96)",
     color: "#050505",
     fontWeight: 800,
-    fontSize: 15,
+    fontSize: 17,
     cursor: "pointer",
+    textAlign: "center",
   },
   followingButton: {
     background: "rgba(255,255,255,0.08)",
     color: "white",
-    border: "1px solid rgba(255,255,255,0.10)",
-  },
-  reportButton: {
-    marginLeft: 10,
-    padding: "14px 20px",
-    borderRadius: 999,
-    border: "1px solid rgba(255,255,255,0.10)",
-    background: "rgba(255,255,255,0.04)",
-    color: "rgba(255,255,255,0.82)",
-    fontWeight: 700,
-    fontSize: 15,
-    cursor: "pointer",
+    border: "1.5px solid rgba(255,255,255,0.22)",
   },
   card: {
     borderRadius: 28,
